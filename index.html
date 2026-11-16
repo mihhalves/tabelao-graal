@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tabelão Graal - Novembro</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<style>
+
+:root {
+  /* Identidade do Tabelão Graal: grafite + laranja Graal, tabelas como no Canva; verde = promoção, vermelho = desconto */
+  --bg: #ececec;
+  --paper: #f6f6f6;
+  --cell: #f1f1f1;
+  --ink: #333333;
+  --muted: #6d6d6d;
+  --orange: #ff6600;
+  --orange-dark: #e55a00;
+  --green: #2f5a1e;
+  --red: #c4161c;
+  --blue: #0b4f9c;
+  --dark: #333333;
+  --coord: #3c5a1f;
+  --font: "Montserrat", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color-scheme: light;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body { background: var(--bg); color: var(--ink); font: 400 15px/1.4 var(--font); -webkit-font-smoothing: antialiased; }
+img { max-width: 100%; display: block; }
+.wrap { max-width: 1120px; margin: 0 auto; padding: 0 16px; }
+h1, h2, h3 { margin: 0; text-wrap: balance; }
+.num { font-variant-numeric: normal; }
+.up { text-transform: uppercase; }
+a { color: inherit; }
+:focus-visible { outline: 3px solid var(--orange); outline-offset: 2px; }
+
+/* ---------- Capa ---------- */
+.cover { background: var(--dark); color: #fff; padding: 22px 0 34px; position: relative; overflow: hidden; }
+.cover::after { content: ""; position: absolute; right: -120px; bottom: -160px; width: 420px; height: 420px; border-radius: 50%; background: radial-gradient(closest-side, rgba(255,102,0,.35), rgba(255,102,0,0)); pointer-events: none; }
+.cover-top { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+.cover-top .selos { height: 30px; width: auto; }
+.cover-top .graal { height: 34px; width: auto; }
+.cover-main { text-align: center; padding: 26px 0 6px; position: relative; z-index: 1; }
+.cover h1 { font-size: clamp(42px, 9vw, 92px); font-weight: 800; letter-spacing: .5px; line-height: 1; }
+.cover .slogan { font-size: clamp(18px, 3.4vw, 30px); letter-spacing: 2px; margin-top: 10px; font-weight: 400; }
+.cover .slogan b { font-weight: 800; }
+.cover .hash { margin-top: 14px; font-size: 17px; letter-spacing: 2px; opacity: .9; }
+.cover-meta { margin-top: 18px; display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; font-size: 13px; }
+.cover-meta span { border: 1px solid rgba(255,255,255,.3); border-radius: 999px; padding: 5px 14px; }
+.pdf-btn { display: inline-block; text-decoration: none; appearance: none; border: 0; background: var(--orange); color: #fff; font: 800 14px var(--font); letter-spacing: .5px; border-radius: 8px; padding: 10px 16px; cursor: pointer; text-transform: uppercase; }
+.pdf-btn:hover { background: var(--orange-dark); }
+.pdf-btn[hidden] { display: none; }
+.pdf-msg { font-size: 12px; color: #ffd2b3; text-align: right; min-height: 1em; }
+
+/* ---------- Faixa de logos ---------- */
+.strip { margin-top: -22px; position: relative; z-index: 2; }
+.strip-inner { background: var(--paper); border-radius: 14px; box-shadow: none; padding: 14px; display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+.strip-inner > a { flex: 0 0 calc((100% - 60px) / 7); }
+.strip a { display: flex; align-items: center; justify-content: center; height: 78px; padding: 10px 14px; border-radius: 10px; background: var(--cell); border: 1px solid #e2e2e2; text-decoration: none; transition: transform .2s, box-shadow .2s, background .2s; }
+.strip a:hover { transform: translateY(-2px); background: var(--paper); box-shadow: 0 6px 16px rgba(0,0,0,.1); }
+.strip-hint { text-align: center; font-size: 12px; color: var(--muted); margin: 8px 0 0; }
+.strip img { max-height: 52px; max-width: 100%; width: auto; height: auto; object-fit: contain; }
+.strip a.dark { background: #2f4a2c; }
+
+/* ---------- Banners ---------- */
+.banner { background: var(--paper); border-radius: 14px; margin-top: 22px; overflow: hidden; box-shadow: 0 1px 0 rgba(0,0,0,.04); }
+.inc-head { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 16px; padding: 16px 22px 6px; }
+.inc-head h2 { text-align: center; font-size: clamp(22px, 3.6vw, 36px); font-weight: 800; letter-spacing: .3px; white-space: nowrap; }
+.inc-head img { height: 38px; width: auto; }
+.inc-cols { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); grid-auto-rows: auto; padding: 6px 10px 18px; }
+.inc-col { padding: 12px 16px; text-align: center; display: grid; grid-row: span 5; grid-template-rows: subgrid; justify-items: center; align-items: center; row-gap: 4px; border-left: 2px solid #d4d4d4; }
+.inc-col .rates { line-height: 1.05; }
+.inc-col:first-child { border-left: 0; }
+.inc-col .lg { height: 80px; width: 100%; display: flex; align-items: center; justify-content: center; }
+.inc-col .lg img { max-height: 76px; max-width: 168px; width: auto; height: auto; }
+.inc-col .rate { font-size: clamp(30px, 4vw, 40px); font-weight: 800; line-height: 1.05; }
+.inc-col .fine { font-size: 11px; color: var(--muted); }
+.inc-col .perk { width: 100%; max-width: 210px; color: #fff; border-radius: 8px; padding: 8px 10px; margin-top: 6px; display: flex; flex-direction: column; align-items: center; line-height: 1.1; }
+.inc-col .perk b { font-size: clamp(18px, 2.2vw, 24px); font-weight: 800; white-space: nowrap; }
+.inc-col .perk small { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; margin-top: 2px; }
+.inc-col .perk.deal { background: var(--red); }
+.inc-col .perk.promo { background: var(--green); }
+.inc-col .money { font-size: clamp(24px, 3.2vw, 30px); font-weight: 800; line-height: 1; }
+.inc-col .note { font-size: 13px; font-weight: 700; margin-top: 8px; }
+
+/* Banner da comissão: mesmo padrão do banner de incentivos (cabeçalho com logos + colunas alinhadas) */
+.comm .sub { text-align: center; color: var(--orange); font-weight: 700; font-size: clamp(14px, 1.9vw, 19px); margin: 2px 16px 0; }
+.comm-cols { display: grid; grid-template-columns: repeat(2, 1fr); padding: 10px 10px 6px; }
+.comm-col { display: grid; grid-row: span 3; grid-template-rows: subgrid; justify-items: center; align-items: center; text-align: center; row-gap: 6px; padding: 10px 16px; border-left: 2px solid #d4d4d4; }
+.comm-col:first-child { border-left: 0; }
+.comm-col .vis { height: 120px; display: flex; align-items: center; justify-content: center; }
+.comm-col .vis img { max-height: 120px; max-width: 220px; width: auto; height: auto; }
+.comm-col .val { font-size: clamp(64px, 9vw, 104px); font-weight: 800; line-height: 1; }
+.comm-col .cap { font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: var(--muted); }
+.comm-premio { display: flex; align-items: center; justify-content: center; gap: 16px; margin: 4px 24px 22px; padding-top: 16px; border-top: 2px solid #d4d4d4; }
+.comm-premio .t { font-size: clamp(34px, 4.6vw, 52px); font-weight: 800; color: #1f7a3a; line-height: 1; animation: pop 2.6s ease-in-out infinite; }
+.comm-premio .c { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: var(--muted); }
+.grid .price .tag.last { background: var(--red); color: #fff; }
+.meta-bar { display: block; background: #1f7a3a; color: #fff; text-align: center; font-size: clamp(15px, 2.2vw, 20px); font-weight: 700; padding: 8px 12px; text-decoration: none; letter-spacing: .5px; }
+.meta-bar b { font-weight: 800; color: #ffd54a; }
+.meta-bar span { display: block; font-size: 11px; font-weight: 600; opacity: .85; text-transform: uppercase; letter-spacing: 1px; }
+.prize { margin: -6px 24px 24px; }
+.prize table { width: 100%; border-collapse: separate; border-spacing: 6px; table-layout: fixed; }
+.prize th, .prize td { background: #ffa800; color: #222; font-weight: 800; text-align: center; padding: 10px 4px; border-radius: 4px; }
+.prize th { font-size: clamp(13px, 1.8vw, 18px); text-transform: uppercase; width: 16%; }
+.prize td { font-size: clamp(16px, 2.6vw, 30px); }
+.prize tr:last-child td { font-size: clamp(14px, 2vw, 22px); }
+.prize-note { text-align: center; font-size: 13px; color: var(--muted); margin-top: 6px; }
+.prize-note b { color: #1f7a3a; }
+.drive-cta { display: flex; flex-direction: column; align-items: center; gap: 6px; margin-top: 22px; text-align: center; }
+.drive-cta a { background: var(--orange); color: #fff; font-weight: 800; font-size: clamp(17px, 2.6vw, 24px); padding: 12px 30px; border-radius: 10px; text-decoration: none; text-transform: uppercase; letter-spacing: .5px; box-shadow: 0 6px 16px rgba(255,102,0,.25); transition: background .2s, transform .2s; }
+.drive-cta a:hover { background: var(--orange-dark); transform: translateY(-2px); }
+.drive-cta span { font-size: 13px; color: var(--muted); }
+.coin { width: 72px; height: 72px; flex: none; border-radius: 50%; display: grid; place-items: center; background: radial-gradient(circle at 35% 30%, #ffe680, #f2b705 70%); color: #1f5f30; font-weight: 800; font-size: 24px; box-shadow: inset 0 0 0 6px rgba(255,255,255,.35), inset 0 0 0 9px #e0a400; }
+@keyframes pop { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.07); } }
+
+/* ---------- Zonas e tabelas ---------- */
+.zone-title { text-align: center; font-size: clamp(24px, 4.4vw, 40px); font-weight: 800; margin: 44px 0 14px; letter-spacing: .3px; }
+.proj { background: #fff; border-radius: 6px; overflow: hidden; margin-bottom: 18px; box-shadow: 0 1px 2px rgba(0,0,0,.05); transition: box-shadow .2s, transform .2s; scroll-margin-top: 16px; }
+.proj:hover { box-shadow: 0 10px 26px rgba(0,0,0,.09); }
+.grid { display: grid; grid-template-columns: 136px 1.15fr 1.15fr 1.2fr 150px 142px 108px; gap: 2px; background: #fff; }
+.grid > div { background: var(--cell); padding: 8px 12px; display: flex; align-items: center; justify-content: center; text-align: center; font-size: 13px; line-height: 1.35; }
+.grid .h { flex-direction: column; background: var(--orange); color: #fff; font-weight: 700; font-size: 12px; line-height: 1.15; padding: 6px; height: 50px; text-transform: uppercase; letter-spacing: .3px; }
+.grid .h.lg { font-size: 18px; font-weight: 800; }
+.grid .h small { display: block; font-weight: 400; font-size: 11px; text-transform: none; letter-spacing: 0; }
+.grid .logo { background: var(--cell); padding: 12px; }
+.grid .logo img { max-height: 96px; max-width: 132px; width: auto; height: auto; }
+.grid .logo.dark { background: #2f4a2c; }
+.grid .addr b { font-weight: 700; }
+.grid .addr { flex-direction: column; gap: 2px; font-size: 12.5px; padding-left: 8px; padding-right: 8px; }
+.grid .addr span { text-wrap: balance; }
+.grid .addr .a1 { font-weight: 600; }
+.grid .addr .a2 { color: #555; }
+.grid .addr .ref { font-size: 11.5px; color: var(--orange-dark); font-weight: 600; margin-top: 6px; }
+.m-info .mref { display: block; color: var(--orange-dark); font-weight: 600; font-size: 11.5px; }
+.grid .unit { font-size: 12.5px; line-height: 1.3; flex-direction: column; min-height: 50px; gap: 1px; }
+.grid .unit .l1 { font-weight: 700; font-size: 13px; }
+.grid .unit .l2 { color: #555; }
+.grid .unit .k { font-weight: 800; text-transform: uppercase; font-size: 10.5px; letter-spacing: 1px; color: var(--orange-dark); }
+.grid .unit b { font-weight: 700; }
+.grid .price { font-size: 18px; font-weight: 800; white-space: nowrap; flex-direction: column; gap: 3px; }
+.grid .price.promo { background: var(--green); color: #fff; }
+.grid .price .tag { display: block; font-size: 8.5px; line-height: 1.3; letter-spacing: .3px; font-weight: 800; background: rgba(255,255,255,.2); border-radius: 3px; padding: 2px 6px; white-space: nowrap; text-align: center; }
+.grid .price { padding-left: 6px; padding-right: 6px; }
+.grid .status { font-size: 15px; font-weight: 800; line-height: 1.25; text-transform: uppercase; }
+.grid .status.lanc { color: var(--orange-dark); }
+.grid .status.pronto { color: var(--green); }
+.grid .when { font-size: 17px; font-weight: 800; text-transform: uppercase; }
+.grid .wide { grid-column: span 2; }
+.deal-bar { background: var(--red); color: #fff; text-align: center; font-size: clamp(16px, 2.4vw, 22px); font-weight: 400; padding: 8px 12px; text-transform: uppercase; letter-spacing: .5px; }
+.deal-bar b { font-weight: 800; }
+.unique { text-align: center; font-size: clamp(22px, 4vw, 34px); font-weight: 800; padding: 10px 0 4px; text-transform: uppercase; }
+.m-info { display: none; }
+
+/* ---------- Vendidos ---------- */
+.sold { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.sold-card { background: #fff; border-radius: 6px; overflow: hidden; display: grid; grid-template-columns: 1fr; grid-template-rows: 110px 1fr auto; text-align: center; }
+.sold-card .lg { display: grid; place-items: center; padding: 12px; background: var(--cell); }
+.sold-card .lg img { max-height: 80px; max-width: 170px; width: auto; height: auto; }
+.sold-card .tx { background: var(--cell); padding: 12px 14px; font-size: 13px; }
+.sold-card .tx b { display: block; font-size: 15px; font-weight: 800; }
+.sold-card .stamp { background: var(--dark); color: #fff; text-align: center; font-weight: 800; font-size: 22px; letter-spacing: 1px; padding: 6px; }
+
+/* ---------- Coordenação ---------- */
+.coord-title { font-size: clamp(24px, 4.4vw, 40px); font-weight: 800; margin: 44px 0 14px; text-align: center; }
+.coord { width: 100%; border-collapse: separate; border-spacing: 2px; background: #fff; border-radius: 6px; overflow: hidden; }
+.coord th { background: var(--coord); color: #fff; padding: 9px 8px; font-size: 14px; font-weight: 700; }
+.coord th:nth-child(2) { font-weight: 400; }
+.coord td { background: var(--cell); padding: 7px 8px; text-align: center; font-size: 13.5px; }
+.coord td.st { font-size: 16px; font-weight: 700; background: #e7e7e7; }
+.coord td.tel { white-space: nowrap; }
+.coord td.nm { font-weight: 700; }
+.coord a { color: var(--ink); text-decoration: none; border-bottom: 1px dotted #999; }
+
+/* ---------- Cadastro ---------- */
+.cta { background: var(--paper); border-radius: 14px; margin-top: 34px; text-align: center; padding: 22px 0 26px; overflow: hidden; }
+.cta h2 { font-size: clamp(22px, 6vw, 58px); font-weight: 800; letter-spacing: 1px; padding: 0 12px; white-space: nowrap; }
+.cta .bar { background: var(--blue); color: #fff; font-weight: 800; font-size: clamp(15px, 2.6vw, 22px); padding: 8px 12px; margin: 10px 0 12px; }
+.cta p { font-size: clamp(17px, 3vw, 28px); margin: 0; padding: 0 16px; }
+.cta p b { font-weight: 800; }
+.cta .logos { display: flex; justify-content: center; align-items: center; gap: 36px; margin-top: 20px; padding: 0 16px; }
+.cta .logos img { height: 56px; width: auto; }
+.cta .logos .sep { width: 2px; height: 46px; background: #d0d0d0; }
+.cta .links { display: flex; flex-direction: column; align-items: center; gap: 8px; margin-top: 18px; padding: 0 16px; }
+.cta .hint { font-size: 14px; color: var(--muted); }
+.cta .go { background: var(--orange); color: #fff; font-weight: 800; font-size: clamp(18px, 3vw, 26px); padding: 10px 28px; border-radius: 8px; text-decoration: none; text-transform: uppercase; transition: background .2s, transform .2s; }
+.cta .go:hover { background: var(--orange-dark); transform: translateY(-2px); }
+footer { color: var(--muted); font-size: 12px; padding: 24px 0 40px; text-align: center; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .cover-main, .strip, .banner { animation: rise .6s ease-out both; }
+  .strip { animation-delay: .08s; } .banner { animation-delay: .14s; }
+}
+@media (prefers-reduced-motion: reduce) { .comm-premio .t { animation: none; } }
+@keyframes rise { from { transform: translateY(10px); } to { transform: none; } }
+
+/* ---------- Celular ---------- */
+@media screen and (max-width: 760px) {
+  .grid { grid-template-columns: 1fr 132px; }
+  .grid > .d { display: none; }
+  .grid > div { grid-row: auto !important; grid-column: auto !important; }
+  .grid .h { height: 44px; }
+  .grid .unit { padding: 8px 10px; }
+  .grid .price { font-size: 16px; }
+  .m-info { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 10px; padding: 16px 14px 14px; }
+  .m-info .lg { display: flex; align-items: center; justify-content: center; height: 90px; width: 200px; border-radius: 8px; background: transparent; }
+  .m-info .lg.dark { background: #2f4a2c; }
+  .m-info .lg img { max-height: 84px; max-width: 190px; width: auto; height: auto; }
+  .m-info .pills { display: flex; gap: 6px; flex-wrap: wrap; justify-content: center; }
+  .m-info .pill { background: var(--dark); color: #fff; font-weight: 700; font-size: 11.5px; border-radius: 4px; padding: 3px 8px; text-transform: uppercase; letter-spacing: .3px; }
+  .m-info .pill.o { background: var(--orange); }
+  .m-info .kv { font-size: 12px; line-height: 1.4; display: grid; gap: 8px; width: 100%; }
+  .m-info .kv > div { text-wrap: balance; }
+  .m-info .kv b { display: block; font-weight: 700; font-size: 10px; letter-spacing: 1px; text-transform: uppercase; color: var(--muted); }
+  .strip-inner { padding: 10px; gap: 8px; } .strip-inner > a { flex-basis: calc((100% - 16px) / 3); }
+  .strip a { height: 62px; padding: 8px; } .strip img { max-height: 42px; }
+  .inc-head { grid-template-columns: 1fr 1fr; }
+  .inc-head h2 { grid-column: 1 / -1; grid-row: 2; font-size: 4.5vw; }
+  .inc-head img:last-child { justify-self: end; }
+  .inc-cols { grid-template-columns: 1fr 1fr; padding: 4px 4px 12px; }
+  .inc-col { border-left: 0; padding: 12px 6px; }
+  .inc-col:nth-child(even) { border-left: 2px solid #d4d4d4; }
+  .inc-col:nth-child(n+3) { border-top: 2px solid #d4d4d4; }
+  .inc-col .lg { height: 54px; } .inc-col .lg img { max-height: 52px; max-width: 130px; }
+  .inc-col .rate { font-size: 22px; } .inc-col .perk { padding: 6px; } .inc-col .perk b { font-size: 16px; } .inc-col .perk small { font-size: 9px; letter-spacing: 1px; }
+  .inc-col .fine { font-size: 10px; } .inc-col .note { font-size: 11px; }
+  .comm-cols { padding: 4px 2px 4px; }
+  .comm-col { padding: 8px 4px; }
+  .comm-col .vis { height: 70px; } .comm-col .vis img { max-height: 70px; max-width: 130px; }
+  .comm-col .val { font-size: 46px; } .comm-col .cap { font-size: 10px; letter-spacing: .5px; }
+  .comm-premio { gap: 10px; margin: 2px 12px 16px; padding-top: 12px; flex-wrap: wrap; }
+  .comm-premio .t { font-size: 30px; }
+  .prize { margin: -4px 6px 16px; } .prize table { border-spacing: 3px; } .prize th { font-size: 9px; width: 19%; padding: 8px 2px; } .prize td { font-size: 14px; padding: 8px 2px; } .prize tr:last-child td { font-size: 11px; }
+  .drive-cta a { font-size: 15px; padding: 12px 18px; white-space: nowrap; }
+  .coin { width: 46px; height: 46px; font-size: 16px; box-shadow: inset 0 0 0 3px rgba(255,255,255,.35), inset 0 0 0 5px #e0a400; }
+  .comm .sub { font-size: 13px; }
+  .sold { grid-template-columns: 1fr; }
+  .coord th { font-size: 11.5px; padding: 8px 4px; }
+  .coord td { font-size: 12px; padding: 6px 4px; }
+  .coord td.st { font-size: 13px; }
+  .cta .logos { gap: 20px; } .cta .logos img { height: 42px; }
+}
+
+/* ---------- PDF ---------- */
+@page { size: A4 landscape; margin: 8mm; }
+@media print {
+  body { background: #fff; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .wrap { max-width: none; padding: 0; }
+  .no-print { display: none !important; }
+  .cover { border-radius: 10px; padding: 16px 0 34px; }
+  .cover h1 { font-size: 72px; }
+  .cover-top, .cover-main { padding-left: 18px; padding-right: 18px; }
+  .strip-inner { box-shadow: none; }
+  .banner, .cover-main, .strip { animation: none !important; }
+  .banner, .proj, .sold-card, .coord, .cta, .strip { break-inside: avoid; }
+  .zone-title, .coord-title { break-after: avoid; margin-top: 18px; }
+  .zone-title.newpage { break-before: page; margin-top: 0; }
+  .proj { box-shadow: none; border: 1px solid #e3e3e3; }
+  .comm-premio .t { animation: none; }
+  .grid { grid-template-columns: 130px 1.1fr 1.1fr 1.25fr 140px 120px 100px; }
+  .grid > div { padding: 3px 8px; font-size: 11px; }
+  .grid .unit { min-height: 0; } .grid .h { height: 38px; }
+  .strip-inner > a { flex-basis: calc((100% - 80px) / 9); }
+  .grid .h { min-height: 34px; font-size: 11.5px; } .grid .h.lg { font-size: 16px; } .grid .h small { font-size: 11px; }
+  .grid .unit { font-size: 10.5px; line-height: 1.2; } .grid .unit .k { font-size: 10px; }
+  .grid .price { font-size: 15px; } .grid .when { font-size: 16px; } .grid .status { font-size: 14px; } .grid .status.pronto { font-size: 19px; }
+  .zone-title { font-size: 26px; margin: 10px 0 8px; } .proj { margin-bottom: 10px; }
+  .deal-bar { font-size: 18px; padding: 4px; }
+}
+</style>
+</head>
+<body>
+<header class="cover">
+  <div class="wrap">
+    <div class="cover-top">
+      <img class="selos" src="logos/selos.png" alt="Selos de qualidade Graal">
+      <div style="display:flex;align-items:center;gap:16px">
+        <div class="no-print"><a class="pdf-btn" id="pdfBtn" href="tabelao-graal.pdf" download hidden>Baixar PDF</a><div class="pdf-msg" id="pdfMsg" role="status"></div></div>
+        <img class="graal" src="logos/graal-branco.png" alt="Graal">
+      </div>
+    </div>
+    <div class="cover-main">
+      <h1>TABELÃO GRAAL</h1>
+      <div class="slogan" id="slogan"></div>
+      <div class="hash">#vemsergraal</div>
+      <div class="cover-meta"><span id="metaRef"></span><span id="metaUpd"></span></div>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <nav class="strip" aria-label="Empreendimentos"><div class="strip-inner" id="strip"></div><p class="strip-hint no-print">Toque no logo para ir direto à tabela do empreendimento</p></nav>
+  <section class="banner" aria-label="Incentivos do mês" id="incentivos"></section>
+  <div class="drive-cta" id="driveTop"></div>
+  <section class="banner comm" aria-label="Comissão" id="comissao"></section>
+  <div id="list"></div>
+  <h2 class="zone-title newpage" id="soldTitle">100% VENDIDOS</h2>
+  <div class="sold" id="sold"></div>
+  <h2 class="coord-title">Precisa de ajuda? Fale com a coordenação</h2>
+  <table class="coord" id="coord"></table>
+  <section class="cta" id="cta"></section>
+  <footer id="foot"></footer>
+</main>
+
+<script type="application/json" id="data"></script>
+<script>
+(function () {
+  const el = document.getElementById("data");
+  const raw = el.textContent.trim();
+  const load = raw.startsWith("{") ? Promise.resolve(JSON.parse(raw))
+    : fetch("./data.json", { cache: "no-store" }).then((r) => { if (!r.ok) throw new Error("data"); return r.json(); });
+  load.then(init).catch(() => {
+    document.getElementById("list").innerHTML = '<p style="text-align:center;padding:40px">Não foi possível carregar a tabela agora. Recarregue a página.</p>';
+  });
+
+  function init(D) {
+    const $ = (id) => document.getElementById(id);
+    const esc = (s) => String(s == null ? "" : s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+    const norm = (s) => String(s || "").normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase();
+    const slug = (s) => norm(s).replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+    const money = (v) => !v ? "CONSULTE" : v >= 1e6
+      ? "R$ " + v.toLocaleString("pt-BR", { maximumFractionDigits: 0 })
+      : "R$ " + (v / 1000).toLocaleString("pt-BR", { maximumFractionDigits: 0 }) + " MIL";
+    const brl = (s) => String(s || "").replace(/^R\$\s*/, "R$ ");
+    const darkLogo = (k) => false;
+    const logoImg = (p) => p.logo ? `<img src="logos/${esc(p.logo)}.png" alt="${esc(p.nome)}">` : `<b>${esc(p.nome)}</b>`;
+    const m = D.meta;
+
+    const units = D.tipologias.map((t) => ({ proj: t[0], tipo: t[1], dorms: t[2], area: t[3], vaga: t[4], preco: t[5], promo: !!t[6], tag: t[7] || "" }));
+    const projects = D.empreendimentos.map((p) => Object.assign({}, p, { id: slug(p.nome), units: units.filter((u) => u.proj === p.nome) }));
+    const active = projects.filter((p) => !p.vendido);
+    const byName = Object.fromEntries(projects.map((p) => [p.nome, p]));
+
+    // Capa
+    $("slogan").innerHTML = esc(m.slogan).replace("compara", "<b>compara</b>").replace("vende", "<b>vende</b>");
+    $("metaRef").textContent = "Incentivos | " + m.referencia;
+    $("metaUpd").textContent = "Atualizado em " + m.atualizado_em;
+    document.title = "Tabelão Graal - " + String(m.referencia || "").split("/")[0];
+
+    // Faixa de logos (atalhos)
+    $("strip").innerHTML = active.map((p) => `<a href="#${p.id}" class="${darkLogo(p.logo) ? "dark" : ""}" title="${esc(p.nome)}">${logoImg(p)}</a>`).join("");
+
+    // Incentivos
+    const ref = String(m.referencia || "").toUpperCase();
+    $("incentivos").innerHTML = `<div class="inc-head"><img src="logos/graal.png" alt="Graal"><h2>INCENTIVOS | ${esc(ref)}</h2><img src="logos/move-house.png" alt="Move House"></div>
+      <div class="inc-cols">${D.incentivos.map((i) => {
+        const p = byName[i.empreendimento] || {};
+        const n = Number(String(i.desconto || "").replace(/[^\d]/g, ""));
+        const val = n >= 1000 ? "R$ " + (n / 1000).toLocaleString("pt-BR", { maximumFractionDigits: 1 }) + " MIL" : esc(i.desconto || "");
+        const perk = i.desconto
+          ? `<div class="perk deal"><b>+ ${val}</b><small>de desconto</small></div>`
+          : `<div class="perk promo"><b>+ PROMOÇÃO</b><small>preço especial</small></div>`;
+        return `<div class="inc-col">
+          <div class="lg">${p.logo ? `<img src="logos/${esc(p.logo)}.png" alt="${esc(i.empreendimento)}">` : `<b>${esc(i.empreendimento)}</b>`}</div>
+          <div class="rates"><div class="rate num">${esc(i.pf)} PF</div><div class="rate num">${esc(i.pj)} PJ</div></div>
+          <div class="fine">${i.validade ? `Vendas até <b>${esc(i.validade)}</b>` : ""}</div>
+          ${perk}
+          <div class="fine">${esc(i.observacao || "")}</div>
+        </div>`;
+      }).join("")}</div>`;
+
+    // Comissão
+    $("comissao").innerHTML = `<div class="inc-head"><img src="logos/graal.png" alt="Graal"><h2>COMISSÃO</h2><img src="logos/move-house.png" alt="Move House"></div>
+      <div class="sub">A comissão mais atrativa do mercado imobiliário!</div>
+      <div class="comm-cols">
+        <div class="comm-col"><div class="vis"><img src="logos/dinheiro-1.png" alt=""></div><div class="val num">${esc(m.comissao_pf)}</div><div class="cap">Pessoa Física (PF)</div></div>
+        <div class="comm-col"><div class="vis"><img src="logos/dinheiro-1.png" alt=""></div><div class="val num">${esc(m.comissao_pj)}</div><div class="cap">Pessoa Jurídica (PJ)</div></div>
+      </div>
+      ${m.comissao_extra ? `<div class="comm-premio"><span class="coin">R$</span><span class="t">+ PRÊMIOS</span><span class="c">Meta agregada · por unidades vendidas</span></div>` : ""}
+      ${(D.premios || []).length ? `<div class="prize"><table><tr><th>Unidades</th>${D.premios.map((x) => `<td>${esc(x[0])}</td>`).join("")}</tr><tr><th>Prêmio</th>${D.premios.map((x) => `<td>${esc(x[1])}</td>`).join("")}</tr></table>
+        <div class="prize-note">Válido para os empreendimentos fora do período de meta de lançamento${projects.some((p) => p.meta) ? ` (${projects.filter((p) => p.meta).map((p) => esc(p.nome)).join(" e ")} estão em meta de lançamento, com condições próprias)` : ""}.</div></div>` : ""}`;
+
+    // Acesse o Drive (logo após os incentivos)
+    $("driveTop").innerHTML = m.link_drive ? `<a href="${esc(m.link_drive)}">Clique aqui e acesse o Drive</a><span>Materiais, books, plantas e tabelas de todos os produtos</span>` : "";
+
+    // Tabelas por zona
+    const zones = [];
+    active.forEach((p) => {
+      const key = (p.zona + " - " + p.bairro).toUpperCase();
+      let z = zones.find((x) => x.key === key);
+      if (!z) { z = { key, items: [] }; zones.push(z); }
+      z.items.push(p);
+    });
+    const unitTxt = (u) => {
+      const parts = [];
+      if (u.tipo === "Loja comercial") return `<span class="k">Oportunidade única</span><span class="l1">Lojas comerciais</span><span class="l2">${esc(u.area)}</span>`;
+      const head = u.tipo !== "Apartamento" ? `<span class="k">${esc(u.tipo)}</span>` : "";
+      const d = u.dorms ? u.dorms + (u.dorms === 1 ? " dormitório" : " dormitórios") : "";
+      return `${head}<span class="l1">${esc(d)}</span><span class="l2">${esc(u.area)}${u.vaga ? " · " + esc(u.vaga) : ""}</span>`;
+    };
+    const addr = (a, ref) => {
+      const parts = String(a || "").split(/\s+[–-]\s+/);
+      return `<span class="a1">${esc(parts[0])}</span>${parts[1] ? `<span class="a2">${esc(parts.slice(1).join(" – "))}</span>` : ""}${ref ? `<span class="ref">${esc(ref)}</span>` : ""}`;
+    };
+    const stCls = (s) => { const n = norm(s); return n.startsWith("pronto") ? "pronto" : n.startsWith("lanc") ? "lanc" : ""; };
+
+    function table(p) {
+      const n = Math.max(p.units.length, 1);
+      const r = (i) => `grid-row:${i + 2}`;
+      const span = `grid-row:2 / span ${n}`;
+      const hasWhen = !!p.entrega;
+      let h = `<div class="h lg d">Projeto</div><div class="h d">Endereço do empreendimento</div><div class="h d">Endereço do stand</div>
+        <div class="h t">Tipo &amp; Metragens</div><div class="h">Valores<small>(a partir de)</small></div>
+        ${hasWhen ? `<div class="h d">Status do Empreendimento</div><div class="h d">Previsão da entrega</div>` : `<div class="h d wide">Status do Empreendimento</div>`}`;
+      h += `<div class="logo d ${darkLogo(p.logo) ? "dark" : ""}" style="grid-column:1;${span}">${logoImg(p)}</div>`;
+      h += `<div class="addr d" style="grid-column:2;${span}">${addr(p.endereco, p.referencia)}</div>`;
+      h += `<div class="addr d" style="grid-column:3;${span}">${addr(p.stand)}</div>`;
+      p.units.forEach((u, i) => {
+        h += `<div class="unit" style="grid-column:4;${r(i)}">${unitTxt(u)}</div>`;
+        h += `<div class="price num ${u.promo ? "promo" : ""}" style="grid-column:5;${r(i)}">${money(u.preco)}${u.promo ? '<span class="tag">PROMOÇÃO</span>' : ""}${u.tag ? `<span class="tag last">${esc(u.tag.toUpperCase())}</span>` : ""}</div>`;
+      });
+      h += hasWhen
+        ? `<div class="status d ${stCls(p.status)}" style="grid-column:6;${span}">${esc(p.status)}</div><div class="when d" style="grid-column:7;${span}">${esc(p.entrega)}</div>`
+        : `<div class="status d ${stCls(p.status)}" style="grid-column:6 / span 2;${span}">${esc(p.status)}</div>`;
+      const info = `<div class="m-info"><div class="lg ${darkLogo(p.logo) ? "dark" : ""}">${logoImg(p)}
+        </div><div class="pills"><span class="pill o">${esc(p.status)}</span>${p.entrega ? `<span class="pill">Entrega ${esc(p.entrega)}</span>` : ""}</div><div class="kv">
+        <div><b>Empreendimento</b>${esc(p.endereco)}${p.referencia ? `<span class="mref">${esc(p.referencia)}</span>` : ""}</div>
+        <div><b>Stand de vendas</b>${esc(p.stand)}</div></div></div>`;
+      const loja = p.units.length && p.units.every((u) => u.tipo === "Loja comercial");
+      return `<article class="proj" id="${p.id}">${info}<div class="grid">${h}</div>
+        ${p.meta ? `<div class="meta-bar">META DE LANÇAMENTO <b>ATIVA</b><span>Comissão diferenciada no período de lançamento · consulte a coordenação</span></div>` : ""}
+        ${p.selo ? `<div class="deal-bar">${esc(p.selo).replace(/(R\$\s?[\d.,]+\s?(mil)?)/i, "<b>$1</b>")}</div>` : ""}</article>`;
+    }
+    let html = "";
+    zones.forEach((z) => { html += `<h2 class="zone-title">${esc(z.key)}</h2>` + z.items.map(table).join(""); });
+    $("list").innerHTML = html;
+
+    // 100% vendidos
+    if (!projects.some((p) => p.vendido)) $("soldTitle").hidden = true;
+    $("sold").innerHTML = projects.filter((p) => p.vendido).map((p) => `<div class="sold-card">
+      <div class="lg">${logoImg(p)}</div>
+      <div class="tx"><b>${esc(p.nome)}</b>${esc((p.zona + " - " + p.bairro))}<br>${esc(p.status)}${p.entrega ? " · entrega " + esc(p.entrega) : ""}</div>
+      <div class="stamp">100% VENDIDO</div></div>`).join("");
+
+    // Coordenação
+    const stands = [];
+    D.coordenadores.filter((c) => String(c[2] || "").replace(/\D/g, "").length >= 10).forEach((c) => { let s = stands.find((x) => x.n === c[0]); if (!s) { s = { n: c[0], p: [] }; stands.push(s); } s.p.push(c); });
+    let rows = `<thead><tr><th>Stand de Vendas</th><th>Coordenador(a)</th><th>Telefone</th></tr></thead><tbody>`;
+    stands.forEach((s) => s.p.forEach((c, i) => {
+      const digits = String(c[2]).replace(/\D/g, "");
+      rows += `<tr>${i === 0 ? `<td class="st" rowspan="${s.p.length}">${esc(s.n)}</td>` : ""}<td class="nm">${esc(c[1])}</td><td class="num tel"><a href="https://wa.me/55${digits}">${esc(c[2])}</a></td></tr>`;
+    }));
+    $("coord").innerHTML = rows + "</tbody>";
+
+    // Cadastro
+    $("cta").innerHTML = `<h2><span style="white-space:nowrap">CADASTRE-SE</span> CONOSCO</h2><div class="bar">SEJA UM PARCEIRO PJ OU PF NA GRAAL</div>
+      <p>A nossa comissão é super atrativa,<br><b>consulte-nos</b>!</p>
+      <div class="logos"><img src="logos/move-house.png" alt="Move House"><span class="sep" aria-hidden="true"></span><img src="logos/graal.png" alt="Graal"></div>
+      <div class="links">
+      ${m.link_drive ? `<a class="go" href="${esc(m.link_drive)}">Clique aqui e acesse o Drive</a><span class="hint">Materiais, books, plantas e tabelas de todos os produtos</span>` : ""}
+      ${m.link_cadastro ? `<a class="go" href="${esc(m.link_cadastro)}">Cadastre-se</a>` : ""}
+      </div>`;
+    $("foot").textContent = "Valores a partir de, sujeitos a alteração sem aviso prévio e à disponibilidade de unidades. Tabelão Graal · " + m.referencia + " · atualizado em " + m.atualizado_em + ".";
+
+    // Baixar PDF: no Claude usa a capacidade de downloads; em qualquer outro site (ex.: GitHub Pages) é um link comum
+    const btn = $("pdfBtn"), msg = $("pdfMsg");
+    if (window.claude && typeof window.claude.use === "function") {
+      window.claude.use("downloads").then((dl) => {
+        if (!dl) return;
+        btn.hidden = false;
+        btn.onclick = async (ev) => {
+          ev.preventDefault();
+          msg.textContent = "Preparando…";
+          try {
+            const r = await fetch("./tabelao-graal.pdf", { cache: "no-store" });
+            if (!r.ok) throw new Error("pdf");
+            await dl.save({ filename: "Tabelao-Graal-" + slug(m.referencia) + ".pdf", data: await r.blob() });
+            msg.textContent = "";
+          } catch (e) { msg.textContent = e && e.code === "declined" ? "" : "Não deu para baixar agora. Tente de novo."; }
+        };
+      }).catch(() => {});
+    } else {
+      btn.hidden = false;
+      btn.setAttribute("download", "Tabelao-Graal-" + slug(m.referencia) + ".pdf");
+    }
+  }
+})();
+</script>
+</body>
+</html>

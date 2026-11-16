@@ -1,0 +1,1238 @@
+{
+ "meta": {
+  "titulo": "Tabelão Graal",
+  "slogan": "Quem compara, vende Graal!",
+  "referencia": "Novembro/2026",
+  "atualizado_em": "15/11/2026",
+  "comissao_pf": "2,5%",
+  "comissao_pj": "4,0%",
+  "comissao_extra": "+ Prêmio",
+  "link_drive": "https://drive.google.com/drive/folders/1Gp5Ly16iRuwWtu7ap2BgFph7S5ZFU3f1",
+  "link_cadastro": "",
+  "zona_titulo": true
+ },
+ "incentivos": [
+  {
+   "empreendimento": "Inspire Esperança",
+   "pf": "3,5%",
+   "pj": "5,0%",
+   "desconto": "",
+   "observacao": "Unidades destacadas em verde na tabela",
+   "validade": "30/11/2026"
+  },
+  {
+   "empreendimento": "Vista 553",
+   "pf": "4,0%",
+   "pj": "5,5%",
+   "desconto": "R$ 40.000",
+   "observacao": "Válido para vendas no modo associativo",
+   "validade": "30/11/2026"
+  },
+  {
+   "empreendimento": "Altos Home Club",
+   "pf": "4,0%",
+   "pj": "5,5%",
+   "desconto": "R$ 70.000",
+   "observacao": "Válido para vendas no modo associativo",
+   "validade": "30/11/2026"
+  },
+  {
+   "empreendimento": "NEXT Alto do Santana",
+   "pf": "4,0%",
+   "pj": "5,5%",
+   "desconto": "R$ 20.000",
+   "observacao": "Válido para vendas no modo associativo",
+   "validade": "30/11/2026"
+  }
+ ],
+ "empreendimentos": [
+  {
+   "nome": "Absoluto Vila Prudente",
+   "zona": "Zona Leste",
+   "bairro": "Vila Prudente",
+   "endereco": "R. Sales Gomes Junior, 207 – Vila Paulo Silas",
+   "referencia": "",
+   "stand": "Av. do Oratório, 3001 – Pq. São Lucas",
+   "status": "Lançamento",
+   "entrega": "mar/2030",
+   "selo": "",
+   "vendido": false,
+   "logo": "absoluto-vila-prudente",
+   "meta": true
+  },
+  {
+   "nome": "HUG Serenity",
+   "zona": "Zona Leste",
+   "bairro": "Itaquera",
+   "endereco": "R. Botuporã, 507 – Vila Brasil",
+   "referencia": "A 500 m da Estação Dom Bosco",
+   "stand": "R. Italina, 285 – Itaquera",
+   "status": "Lançamento",
+   "entrega": "mar/2030",
+   "selo": "",
+   "vendido": false,
+   "logo": "hug-serenity",
+   "meta": true
+  },
+  {
+   "nome": "HUG Vitality",
+   "zona": "Zona Leste",
+   "bairro": "Itaquera",
+   "endereco": "R. Botuporã, 507 – Vila Brasil",
+   "referencia": "A 500 m da Estação Dom Bosco",
+   "stand": "R. Italina, 285 – Itaquera",
+   "status": "Obras em andamento",
+   "entrega": "out/2028",
+   "selo": "",
+   "vendido": false,
+   "logo": "hug-vitality",
+   "meta": false
+  },
+  {
+   "nome": "Pulse Itaquera",
+   "zona": "Zona Leste",
+   "bairro": "Itaquera",
+   "endereco": "R. Victório Santim, 663 – Vila Carmosina",
+   "referencia": "A 100 m da Estação Dom Bosco",
+   "stand": "R. Italina, 285 – Itaquera",
+   "status": "Obras em andamento",
+   "entrega": "mar/2029",
+   "selo": "",
+   "vendido": false,
+   "logo": "pulse-itaquera",
+   "meta": false
+  },
+  {
+   "nome": "Graal Parque",
+   "zona": "Zona Leste",
+   "bairro": "Itaquera",
+   "endereco": "Av. Afonso de Sampaio e Sousa, 1884 – Itaquera",
+   "referencia": "",
+   "stand": "No próprio empreendimento",
+   "status": "Lançamento",
+   "entrega": "out/2029",
+   "selo": "",
+   "vendido": false,
+   "logo": "graal-parque",
+   "meta": false
+  },
+  {
+   "nome": "Viva Itamaracá",
+   "zona": "Zona Leste",
+   "bairro": "Itaquera",
+   "endereco": "R. Capitânia de Itamaracá, 318 – Itaquera",
+   "referencia": "Próximo às estações Dom Bosco e Itaquera",
+   "stand": "R. Italina, 285 – Itaquera",
+   "status": "Pronto para morar",
+   "entrega": "",
+   "selo": "Últimas unidades",
+   "vendido": false,
+   "logo": "viva-itamaraca",
+   "meta": false
+  },
+  {
+   "nome": "Bosque Club",
+   "zona": "Zona Leste",
+   "bairro": "Itaquera",
+   "endereco": "R. Dona Maria de Camargo, 106 – Itaquera",
+   "referencia": "",
+   "stand": "R. Italina, 285 – Itaquera",
+   "status": "Pronto para morar",
+   "entrega": "",
+   "selo": "Últimas unidades",
+   "vendido": false,
+   "logo": "bosque-club",
+   "meta": false
+  },
+  {
+   "nome": "Brisas da Praça",
+   "zona": "Zona Leste",
+   "bairro": "Patriarca",
+   "endereco": "Praça Goiânia, 90 – Patriarca",
+   "referencia": "",
+   "stand": "Av. Antônio Estevão de Carvalho, 2000 – Patriarca",
+   "status": "Lançamento",
+   "entrega": "set/2029",
+   "selo": "",
+   "vendido": false,
+   "logo": "brisas-da-praca",
+   "meta": false
+  },
+  {
+   "nome": "Lyon Penha",
+   "zona": "Zona Leste",
+   "bairro": "Penha",
+   "endereco": "R. São Serafim, 326 – Penha de França",
+   "referencia": "",
+   "stand": "R. Cumai, 122 – Vila Matilde",
+   "status": "Lançamento",
+   "entrega": "out/2029",
+   "selo": "",
+   "vendido": false,
+   "logo": "lyon-penha",
+   "meta": false
+  },
+  {
+   "nome": "Inspire Esperança",
+   "zona": "Zona Leste",
+   "bairro": "Vila Matilde",
+   "endereco": "R. Dr. Heládio, 478 – Vila Esperança",
+   "referencia": "A 500 m do Metrô Guilhermina-Esperança",
+   "stand": "R. Cumai, 122 – Vila Matilde",
+   "status": "Obras em andamento",
+   "entrega": "jun/2028",
+   "selo": "",
+   "vendido": false,
+   "logo": "inspire-esperanca",
+   "meta": false
+  },
+  {
+   "nome": "LED Iguatemi",
+   "zona": "Zona Leste",
+   "bairro": "Cidade Tiradentes",
+   "endereco": "Av. Souza Ramos, 437 – Guaianazes",
+   "referencia": "A 500 m do Terminal Cidade Tiradentes",
+   "stand": "Av. Souza Ramos, 106 – Guaianazes",
+   "status": "Obras em andamento",
+   "entrega": "dez/2027",
+   "selo": "Desconto de até R$ 20 mil",
+   "vendido": false,
+   "logo": "led-iguatemi",
+   "meta": false
+  },
+  {
+   "nome": "Altos Home Club",
+   "zona": "Zona Norte",
+   "bairro": "Santana",
+   "endereco": "R. Tomé Ferreira, 226 – Santana",
+   "referencia": "",
+   "stand": "Av. Água Fria, 110 – Santana",
+   "status": "Obras em andamento",
+   "entrega": "nov/2027",
+   "selo": "Desconto de até R$ 70 mil",
+   "vendido": false,
+   "logo": "altos-home-club",
+   "meta": false
+  },
+  {
+   "nome": "NEXT Alto do Santana",
+   "zona": "Zona Norte",
+   "bairro": "Santana",
+   "endereco": "R. Tomé Ferreira, 250 – Santana",
+   "referencia": "",
+   "stand": "Av. Água Fria, 110 – Santana",
+   "status": "Obras em andamento",
+   "entrega": "abr/2027",
+   "selo": "Desconto de até R$ 20 mil",
+   "vendido": false,
+   "logo": "next-alto-do-santana",
+   "meta": false
+  },
+  {
+   "nome": "Vista 553",
+   "zona": "Zona Norte",
+   "bairro": "Freguesia do Ó",
+   "endereco": "R. Benedito Guedes de Oliveira, 553 – Freguesia do Ó",
+   "referencia": "Ao lado da Av. Inajar de Souza",
+   "stand": "No próprio empreendimento",
+   "status": "Pronto para morar",
+   "entrega": "",
+   "selo": "Desconto de até R$ 40 mil",
+   "vendido": false,
+   "logo": "vista-553",
+   "meta": false
+  },
+  {
+   "nome": "Link",
+   "zona": "Zona Leste",
+   "bairro": "Itaquera",
+   "endereco": "R. Italina, 260 – Vila Carmosina",
+   "referencia": "A 100 m da Estação Dom Bosco",
+   "stand": "R. Italina, 285 – Itaquera",
+   "status": "Obras em andamento",
+   "entrega": "dez/2027",
+   "selo": "",
+   "vendido": false,
+   "logo": "link",
+   "meta": false
+  },
+  {
+   "nome": "Arte",
+   "zona": "Zona Leste",
+   "bairro": "Vila Matilde",
+   "endereco": "R. Jorge Augusto, 624 – Vila Matilde",
+   "referencia": "A 400 m da Estação Vila Matilde",
+   "stand": "R. Cumai, 122 – Vila Matilde",
+   "status": "Pronto para morar",
+   "entrega": "",
+   "selo": "",
+   "vendido": true,
+   "logo": "arte",
+   "meta": false
+  },
+  {
+   "nome": "Arcos Itaquera",
+   "zona": "Zona Leste",
+   "bairro": "Itaquera",
+   "endereco": "R. Campinas do Piauí, 555 – Itaquera",
+   "referencia": "",
+   "stand": "R. Italina, 285 – Itaquera",
+   "status": "Pronto para morar",
+   "entrega": "",
+   "selo": "",
+   "vendido": false,
+   "logo": "arcos-itaquera",
+   "meta": false
+  }
+ ],
+ "tipologias": [
+  [
+   "HUG Serenity",
+   "Apartamento",
+   2,
+   "35 e 36 m²",
+   "sem vaga",
+   260000,
+   false,
+   ""
+  ],
+  [
+   "HUG Serenity",
+   "Apartamento",
+   2,
+   "39 e 41 m²",
+   "sem vaga",
+   288000,
+   false,
+   ""
+  ],
+  [
+   "HUG Serenity",
+   "Apartamento",
+   2,
+   "41 m²",
+   "com vaga",
+   339000,
+   false,
+   ""
+  ],
+  [
+   "HUG Serenity",
+   "Apartamento",
+   2,
+   "41 m² · closet",
+   "com vaga",
+   356000,
+   false,
+   ""
+  ],
+  [
+   "HUG Serenity",
+   "Apartamento",
+   2,
+   "43 m² · closet",
+   "com vaga",
+   370000,
+   false,
+   ""
+  ],
+  [
+   "HUG Serenity",
+   "Apartamento",
+   2,
+   "43 m² · suíte",
+   "com vaga",
+   382000,
+   false,
+   ""
+  ],
+  [
+   "HUG Serenity",
+   "Apartamento",
+   2,
+   "49 m²",
+   "com vaga",
+   383000,
+   false,
+   ""
+  ],
+  [
+   "HUG Serenity",
+   "Apartamento",
+   2,
+   "49 m² · suíte",
+   "com vaga",
+   434000,
+   false,
+   ""
+  ],
+  [
+   "HUG Serenity",
+   "Apartamento",
+   3,
+   "53 m² · suíte",
+   "com vaga",
+   424000,
+   false,
+   ""
+  ],
+  [
+   "HUG Serenity",
+   "Cobertura",
+   3,
+   "80 e 81 m² · suíte",
+   "2 vagas",
+   691000,
+   false,
+   ""
+  ],
+  [
+   "HUG Serenity",
+   "Garden",
+   2,
+   "59 a 74 m²",
+   "com vaga",
+   472000,
+   false,
+   ""
+  ],
+  [
+   "HUG Serenity",
+   "Garden",
+   2,
+   "74 m² · suíte",
+   "com vaga",
+   588000,
+   false,
+   ""
+  ],
+  [
+   "HUG Serenity",
+   "Garden",
+   3,
+   "92 m² · suíte",
+   "com vaga",
+   742000,
+   false,
+   ""
+  ],
+  [
+   "HUG Vitality",
+   "Apartamento",
+   2,
+   "35 e 36 m²",
+   "sem vaga",
+   288000,
+   false,
+   ""
+  ],
+  [
+   "HUG Vitality",
+   "Apartamento",
+   2,
+   "39 e 41 m²",
+   "sem vaga",
+   314000,
+   false,
+   ""
+  ],
+  [
+   "HUG Vitality",
+   "Apartamento",
+   2,
+   "41 m²",
+   "com vaga",
+   366000,
+   false,
+   ""
+  ],
+  [
+   "HUG Vitality",
+   "Apartamento",
+   2,
+   "41 m² · closet",
+   "com vaga",
+   386000,
+   false,
+   ""
+  ],
+  [
+   "HUG Vitality",
+   "Apartamento",
+   2,
+   "43 m² · closet",
+   "com vaga",
+   399000,
+   false,
+   ""
+  ],
+  [
+   "HUG Vitality",
+   "Apartamento",
+   2,
+   "49 m² · closet",
+   "com vaga",
+   385000,
+   true,
+   ""
+  ],
+  [
+   "HUG Vitality",
+   "Apartamento",
+   3,
+   "53 m² · suíte",
+   "com vaga",
+   459000,
+   false,
+   ""
+  ],
+  [
+   "HUG Vitality",
+   "Cobertura",
+   3,
+   "81 m² · suíte",
+   "com vaga",
+   777000,
+   false,
+   ""
+  ],
+  [
+   "HUG Vitality",
+   "Garden",
+   2,
+   "61 a 74 m²",
+   "com vaga",
+   529000,
+   false,
+   ""
+  ],
+  [
+   "HUG Vitality",
+   "Garden",
+   2,
+   "77 m² · suíte",
+   "com vaga",
+   663000,
+   false,
+   ""
+  ],
+  [
+   "HUG Vitality",
+   "Garden",
+   3,
+   "92 m² · suíte",
+   "com vaga",
+   811000,
+   false,
+   ""
+  ],
+  [
+   "Pulse Itaquera",
+   "Apartamento",
+   1,
+   "26 m²",
+   "sem vaga",
+   226000,
+   false,
+   ""
+  ],
+  [
+   "Pulse Itaquera",
+   "Apartamento",
+   2,
+   "41 m²",
+   "sem vaga",
+   299000,
+   false,
+   ""
+  ],
+  [
+   "Pulse Itaquera",
+   "Apartamento",
+   2,
+   "41 m²",
+   "com vaga",
+   394000,
+   false,
+   ""
+  ],
+  [
+   "Pulse Itaquera",
+   "Apartamento",
+   2,
+   "45 ou 46 m² · suíte",
+   "sem vaga",
+   387000,
+   false,
+   ""
+  ],
+  [
+   "Pulse Itaquera",
+   "Apartamento",
+   2,
+   "45 ou 46 m² · suíte",
+   "com vaga",
+   449000,
+   false,
+   ""
+  ],
+  [
+   "Pulse Itaquera",
+   "Apartamento",
+   3,
+   "50 m² · suíte",
+   "com vaga",
+   470000,
+   false,
+   ""
+  ],
+  [
+   "Pulse Itaquera",
+   "Garden",
+   1,
+   "43 m²",
+   "sem vaga",
+   339000,
+   false,
+   ""
+  ],
+  [
+   "Pulse Itaquera",
+   "Garden",
+   2,
+   "53 m²",
+   "com vaga",
+   471000,
+   false,
+   ""
+  ],
+  [
+   "Pulse Itaquera",
+   "Garden",
+   3,
+   "87 m² · suíte",
+   "2 vagas",
+   795000,
+   false,
+   ""
+  ],
+  [
+   "Pulse Itaquera",
+   "Loja comercial",
+   0,
+   "117 a 175 m²",
+   "",
+   1100000,
+   false,
+   ""
+  ],
+  [
+   "Graal Parque",
+   "Apartamento",
+   2,
+   "38 e 40 m²",
+   "sem vaga",
+   264000,
+   false,
+   ""
+  ],
+  [
+   "Graal Parque",
+   "Apartamento",
+   2,
+   "38 e 40 m²",
+   "com vaga",
+   370000,
+   false,
+   ""
+  ],
+  [
+   "Graal Parque",
+   "Apartamento",
+   2,
+   "40 e 42 m² · suíte",
+   "sem vaga",
+   323000,
+   false,
+   ""
+  ],
+  [
+   "Graal Parque",
+   "Apartamento",
+   2,
+   "42 m² · suíte",
+   "com vaga",
+   410000,
+   false,
+   ""
+  ],
+  [
+   "Graal Parque",
+   "Garden",
+   2,
+   "61 m²",
+   "sem vaga",
+   418000,
+   false,
+   ""
+  ],
+  [
+   "Graal Parque",
+   "Garden",
+   2,
+   "61 m²",
+   "com vaga",
+   484000,
+   false,
+   ""
+  ],
+  [
+   "Graal Parque",
+   "Garden",
+   2,
+   "71 m² · suíte",
+   "sem vaga",
+   521000,
+   false,
+   ""
+  ],
+  [
+   "Graal Parque",
+   "Garden",
+   2,
+   "72 a 80 m² · suíte",
+   "com vaga",
+   643000,
+   false,
+   ""
+  ],
+  [
+   "Viva Itamaracá",
+   "Apartamento",
+   2,
+   "40 m²",
+   "com vaga",
+   340000,
+   true,
+   ""
+  ],
+  [
+   "Viva Itamaracá",
+   "Garden",
+   1,
+   "41 m²",
+   "com vaga",
+   364000,
+   false,
+   ""
+  ],
+  [
+   "Viva Itamaracá",
+   "Garden",
+   2,
+   "78 m²",
+   "com vaga",
+   650000,
+   false,
+   ""
+  ],
+  [
+   "Viva Itamaracá",
+   "Cobertura",
+   2,
+   "82 m²",
+   "com vaga",
+   780000,
+   false,
+   ""
+  ],
+  [
+   "Bosque Club",
+   "Garden",
+   2,
+   "137 m² · suíte",
+   "com vaga",
+   697000,
+   false,
+   "Desconto R$ 30 mil"
+  ],
+  [
+   "Bosque Club",
+   "Cobertura",
+   3,
+   "81 m² · suíte",
+   "2 vagas",
+   776000,
+   false,
+   "Desconto R$ 50 mil"
+  ],
+  [
+   "Brisas da Praça",
+   "Apartamento",
+   2,
+   "42 m²",
+   "sem vaga",
+   345000,
+   false,
+   ""
+  ],
+  [
+   "Brisas da Praça",
+   "Apartamento",
+   2,
+   "45 m² · closet",
+   "sem vaga",
+   399000,
+   false,
+   ""
+  ],
+  [
+   "Brisas da Praça",
+   "Apartamento",
+   2,
+   "45 a 46 m² · suíte",
+   "sem vaga",
+   397000,
+   false,
+   ""
+  ],
+  [
+   "Brisas da Praça",
+   "Apartamento",
+   2,
+   "48 m²",
+   "com vaga",
+   486000,
+   false,
+   ""
+  ],
+  [
+   "Brisas da Praça",
+   "Apartamento",
+   2,
+   "54 a 55 m² · suíte",
+   "sem vaga",
+   481000,
+   false,
+   ""
+  ],
+  [
+   "Brisas da Praça",
+   "Apartamento",
+   2,
+   "54 a 55 m² · suíte",
+   "com vaga",
+   508000,
+   false,
+   ""
+  ],
+  [
+   "Brisas da Praça",
+   "Apartamento",
+   3,
+   "64 m² · suíte",
+   "com vaga",
+   629000,
+   false,
+   ""
+  ],
+  [
+   "Brisas da Praça",
+   "Apartamento",
+   3,
+   "73 m² · suíte",
+   "com vaga",
+   720000,
+   false,
+   ""
+  ],
+  [
+   "Brisas da Praça",
+   "Garden",
+   2,
+   "56 m²",
+   "com vaga",
+   507000,
+   false,
+   ""
+  ],
+  [
+   "Brisas da Praça",
+   "Garden",
+   2,
+   "58 a 62 m² · suíte",
+   "com vaga",
+   537000,
+   false,
+   ""
+  ],
+  [
+   "Brisas da Praça",
+   "Garden",
+   3,
+   "83 m² · suíte",
+   "com vaga",
+   737000,
+   false,
+   ""
+  ],
+  [
+   "Lyon Penha",
+   "Apartamento",
+   1,
+   "28 m²",
+   "sem vaga",
+   247000,
+   false,
+   ""
+  ],
+  [
+   "Lyon Penha",
+   "Apartamento",
+   2,
+   "42 m²",
+   "sem vaga",
+   366000,
+   false,
+   ""
+  ],
+  [
+   "Lyon Penha",
+   "Apartamento",
+   3,
+   "64 m² · suíte",
+   "com vaga",
+   630000,
+   true,
+   ""
+  ],
+  [
+   "Lyon Penha",
+   "Duplex",
+   3,
+   "152 m² · 2 suítes",
+   "2 vagas",
+   1366000,
+   false,
+   ""
+  ],
+  [
+   "Lyon Penha",
+   "Garden",
+   2,
+   "65 m²",
+   "com vaga",
+   597000,
+   false,
+   ""
+  ],
+  [
+   "Lyon Penha",
+   "Garden",
+   3,
+   "74 a 117 m² · suíte",
+   "2 vagas",
+   746000,
+   false,
+   ""
+  ],
+  [
+   "Inspire Esperança",
+   "Apartamento",
+   1,
+   "26 m²",
+   "sem vaga",
+   250000,
+   false,
+   ""
+  ],
+  [
+   "Inspire Esperança",
+   "Apartamento",
+   2,
+   "42 m²",
+   "sem vaga",
+   349000,
+   true,
+   ""
+  ],
+  [
+   "Inspire Esperança",
+   "Apartamento",
+   3,
+   "65 m² · suíte",
+   "com vaga",
+   510000,
+   true,
+   ""
+  ],
+  [
+   "Absoluto Vila Prudente",
+   "Apartamento",
+   1,
+   "26 m²",
+   "sem vaga",
+   199000,
+   false,
+   ""
+  ],
+  [
+   "Absoluto Vila Prudente",
+   "Apartamento",
+   1,
+   "31 m²",
+   "sem vaga",
+   264000,
+   false,
+   ""
+  ],
+  [
+   "Absoluto Vila Prudente",
+   "Apartamento",
+   1,
+   "36 m²",
+   "sem vaga",
+   281000,
+   false,
+   ""
+  ],
+  [
+   "Absoluto Vila Prudente",
+   "Apartamento",
+   2,
+   "36 e 37 m²",
+   "sem vaga",
+   299000,
+   false,
+   ""
+  ],
+  [
+   "Absoluto Vila Prudente",
+   "Apartamento",
+   2,
+   "43 m² · suíte",
+   "sem vaga",
+   361000,
+   false,
+   ""
+  ],
+  [
+   "Absoluto Vila Prudente",
+   "Apartamento",
+   2,
+   "43 m² · suíte",
+   "com vaga",
+   399000,
+   false,
+   ""
+  ],
+  [
+   "Absoluto Vila Prudente",
+   "Apartamento",
+   3,
+   "52 e 55 m² · suíte",
+   "com vaga",
+   525000,
+   false,
+   ""
+  ],
+  [
+   "LED Iguatemi",
+   "Apartamento",
+   2,
+   "35 a 39 m²",
+   "sem vaga",
+   242000,
+   false,
+   ""
+  ],
+  [
+   "LED Iguatemi",
+   "Apartamento",
+   2,
+   "35 a 39 m² · closet",
+   "sem vaga",
+   256000,
+   false,
+   ""
+  ],
+  [
+   "LED Iguatemi",
+   "Apartamento",
+   2,
+   "35 a 39 m² · suíte",
+   "sem vaga",
+   256000,
+   false,
+   ""
+  ],
+  [
+   "LED Iguatemi",
+   "Apartamento",
+   2,
+   "35 a 39 m² · suíte",
+   "com vaga",
+   313000,
+   false,
+   ""
+  ],
+  [
+   "LED Iguatemi",
+   "Garden",
+   2,
+   "53 a 76 m² · suíte",
+   "com vaga",
+   330000,
+   false,
+   ""
+  ],
+  [
+   "Altos Home Club",
+   "Apartamento",
+   2,
+   "47 a 49 m² · suíte",
+   "sem vaga",
+   530000,
+   false,
+   ""
+  ],
+  [
+   "Altos Home Club",
+   "Apartamento",
+   2,
+   "47 a 49 m² · suíte",
+   "com vaga",
+   578000,
+   false,
+   ""
+  ],
+  [
+   "NEXT Alto do Santana",
+   "Apartamento",
+   2,
+   "39 a 42 m²",
+   "sem vaga",
+   380000,
+   false,
+   ""
+  ],
+  [
+   "Vista 553",
+   "Apartamento",
+   2,
+   "43 m²",
+   "com vaga",
+   483000,
+   false,
+   ""
+  ],
+  [
+   "Vista 553",
+   "Apartamento",
+   3,
+   "80 m² · suíte",
+   "2 vagas",
+   881000,
+   false,
+   ""
+  ],
+  [
+   "Link",
+   "Apartamento",
+   2,
+   "41 m²",
+   "sem vaga",
+   336000,
+   false,
+   "Última unidade"
+  ],
+  [
+   "Arcos Itaquera",
+   "Apartamento",
+   2,
+   "40 m²",
+   "com vaga",
+   385000,
+   false,
+   "Última unidade"
+  ]
+ ],
+ "coordenadores": [
+  [
+   "Vila Matilde",
+   "Dayane",
+   "(11) 98737-6879"
+  ],
+  [
+   "Freguesia & Santana",
+   "Taffarel",
+   "(11) 99157-1570"
+  ],
+  [
+   "Itaquera",
+   "Rogério",
+   "(11) 94810-9621"
+  ],
+  [
+   "Itaquera",
+   "Lia",
+   "(11) 93713-0038"
+  ],
+  [
+   "Graal Parque",
+   "Ingrid",
+   "(11) 98715-3130"
+  ],
+  [
+   "Cidade Tiradentes",
+   "Douglas",
+   "(11) 99122-2765"
+  ],
+  [
+   "Patriarca",
+   "Hisneique",
+   "(11) 94781-9766"
+  ],
+  [
+   "Patriarca",
+   "Santana",
+   "(11) 99851-7898"
+  ],
+  [
+   "São Lucas",
+   "Cibele Gomes",
+   "(11) 96551-7701"
+  ],
+  [
+   "São Lucas",
+   "Cleiton",
+   "(11) 94744-7316"
+  ]
+ ],
+ "premios": [
+  [
+   "02",
+   "0,20%"
+  ],
+  [
+   "03",
+   "0,40%"
+  ],
+  [
+   "04",
+   "0,60%"
+  ],
+  [
+   "06",
+   "0,80%"
+  ],
+  [
+   "08",
+   "1,00%"
+  ],
+  [
+   "10+",
+   "1,20%"
+  ]
+ ]
+}
