@@ -155,6 +155,8 @@ a { color: inherit; }
 .grid .unit b { font-weight: 700; }
 .grid .price { font-size: 18px; font-weight: 800; white-space: nowrap; flex-direction: column; gap: 3px; }
 .grid .price.promo { background: var(--green); color: #fff; }
+.grid .unit.soldout { opacity: .5; }
+.grid .price.soldout { background: #e6e6ea; color: #7c7c86; font-size: 14px; letter-spacing: 1.2px; }
 .grid .price .tag { display: block; font-size: 8.5px; line-height: 1.3; letter-spacing: .3px; font-weight: 800; background: rgba(255,255,255,.2); border-radius: 3px; padding: 2px 6px; white-space: nowrap; text-align: center; }
 .grid .price { padding-left: 6px; padding-right: 6px; }
 .grid .status { font-size: 15px; font-weight: 800; line-height: 1.25; text-transform: uppercase; }
@@ -426,6 +428,12 @@ footer { color: var(--muted); font-size: 12px; padding: 24px 0 40px; text-align:
       h += `<div class="addr d" style="grid-column:2;${span}">${addr(p.endereco, p.referencia)}</div>`;
       h += `<div class="addr d" style="grid-column:3;${span}">${addr(p.stand)}</div>`;
       p.units.forEach((u, i) => {
+        const so = u.preco === "esgotado" || /esgot/i.test(u.tag);
+        if (so) {
+          h += `<div class="unit soldout" style="grid-column:4;${r(i)}">${unitTxt(u)}</div>`;
+          h += `<div class="price soldout" style="grid-column:5;${r(i)}">ESGOTADO</div>`;
+          return;
+        }
         h += `<div class="unit" style="grid-column:4;${r(i)}">${unitTxt(u)}</div>`;
         h += `<div class="price num ${u.promo ? "promo" : ""}" style="grid-column:5;${r(i)}">${money(u.preco)}${u.promo ? '<span class="tag">PROMOÇÃO</span>' : ""}${u.tag ? `<span class="tag last">${esc(u.tag.toUpperCase())}</span>` : ""}</div>`;
       });
