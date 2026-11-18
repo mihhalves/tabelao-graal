@@ -3,7 +3,7 @@
   "titulo": "Tabelão Graal",
   "slogan": "Quem compara, vende Graal!",
   "referencia": "Novembro/2026",
-  "atualizado_em": "17/11/2026",
+  "atualizado_em": "18/11/2026",
   "comissao_pf": "2,5%",
   "comissao_pj": "4,0%",
   "comissao_extra": "+ Prêmio",
@@ -651,16 +651,6 @@
    "38 e 40 m²",
    "sem vaga",
    264000,
-   false,
-   ""
-  ],
-  [
-   "Graal Parque",
-   "Apartamento",
-   2,
-   "38 e 40 m²",
-   "com vaga",
-   370000,
    false,
    ""
   ],
